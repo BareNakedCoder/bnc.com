@@ -1,0 +1,27 @@
+
+#---------------- Developer Notes
+
+#-------- Templates
+* analytics.html:
+   - Html for Google Analytics (iff GOOGLE_ANALYTICS is set; not for Dev)
+* ___ archives.html: (MANDATORY)
+* ___ article.html: (MANDATORY)
+* ___ article_infos.html:
+* ___ author.html: (MANDATORY)
+* ___ authors.html: (MANDATORY)
+* WIP base.html:
+   - Html base for all other pages.
+* ___ categories.html: (MANDATORY ?????)
+* ___ category.html: (MANDATORY)
+* ___ comments.html:
+* ___ disqus_script.html:
+* WIP index.html: (MANDATORY)
+   - Html for Home Page
+* ___ page.html: (MANDATORY)
+* ___ period_archives.html: (MANDATORY)
+* ___ piwik.html:
+* ___ tag.html: (MANDATORY)
+* ___ taglist.html:
+* ___ tags.html: (MANDATORY)
+* ___ translations.html:
+* ___ twitter.html:

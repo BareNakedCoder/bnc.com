@@ -1,14 +1,34 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+import time, os, binascii
 
+#-----------------------------------------------------------------------
+# BareNakedCoder Settings
+#-----------------------------------------------------------------------
+
+CACHE_UNIQUE_ID = binascii.hexlify(os.urandom(4))
+DEFAULT_DATE_FORMAT = '%Y-%m-%d'
+
+#-----------------------------------------------------------------------
+# Pelican Settings
+#-----------------------------------------------------------------------
 AUTHOR = u'Don Parakin'
-SITENAME = u'BareNakedCoder.com'
-SITEURL = ''
+SITENAME = u'BareNakedCoder'
+SITEURL = 'http://dev.barenakedcoder.com'
+TYPOGRIFY = True
+
+ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{slug}.html'
+ARTICLE_SAVE_AS = ARTICLE_URL
+PAGE_URL = 'pages/{slug}.html'
+PAGE_SAVE_AS = PAGE_URL
+
+
+
 
 PATH = 'content'
 
-TIMEZONE = 'Europe/Paris'
+TIMEZONE = 'UTC'   # 'America/Toronto'
 
 DEFAULT_LANG = u'en'
 
@@ -19,17 +39,10 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
-
-# Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
-
-DEFAULT_PAGINATION = 5
+DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
+
+#---------------- Removed Settings
+

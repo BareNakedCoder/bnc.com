@@ -2,6 +2,7 @@
 #---- Pelican: Generated files/dirs
 cache/
 output/
+themes-git/
 
 #---- IntelliJ: Omit all
 .idea/

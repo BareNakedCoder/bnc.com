@@ -2,6 +2,22 @@
 {% block content_title %}{% endblock %}
 {% block content %}
 {% if articles %}
+
+
+{% for article in articles_page.object_list %}
+<!-- ---------------- START: Article Summary ---------------- -->
+<div class="bnc-article">
+<h1>{{ article.title }}</h1>
+{{ article.summary }}<p class="bnc-byline"><a href="/{{ article.url }}">READ</a> {% include 'article_byline.html' %}</p>
+</div>
+<!-- ---------------- END: Article Summary ---------------- -->
+
+
+{% endfor %}
+{% endif %}
+{% endblock %}
+{% block xxxxxxxx_content %}
+{% if articles %}
 {% for article in articles_page.object_list %}
 
 {# First item #}
@@ -66,4 +82,4 @@
 			{% endfor %}
 		</section>
 		{% endif %}
-		{% endblock content %}
+		{% endblock %}
