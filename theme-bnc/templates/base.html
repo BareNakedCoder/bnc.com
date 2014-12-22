@@ -5,7 +5,6 @@
 	<meta charset="utf-8"/>
 	<title>{% block title %}{{ SITENAME }}{%endblock%}</title>
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 	<link href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/css/foundation.min.css" rel="stylesheet"/>
 	<link href="/{{ THEME_STATIC_DIR }}/css/barenakedcoder.css?{{ CACHE_UNIQUE_ID }}" rel="stylesheet"/>
 {% if FEED_ALL_ATOM %}
@@ -21,20 +20,28 @@
 
 <body id="index" class="home">
 	<div class="contain-to-grid">
-		<nav class="top-bar" data-topbar>
+		<nav class="top-bar" data-topbar role="navigation" data-options="is_hover:true">
 			<ul class="title-area">
-				<li class="name">
-					<h1><a href="/">BareNakedCoder.com</a></h1>
-				</li>
-				<li class="toggle-topbar menu-icon">
-					<a href="#"><span>Menu</span></a>
-				</li>
+				<li class="name"><h1><a href="/">BareNakedCoder.com</a></h1></li>
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 			</ul>
 			<section class="top-bar-section">
 				<ul class="right">
 					<li><a href="/">Home</a></li>
-					<li><a href="/">KDB</a></li>
-					<li><a href="/">About</a></li>
+					<li class="has-dropdown">
+						<a href="/pages/projects/securemypw.html">Projects</a>
+						<ul class="dropdown">
+							<li><a href="/pages/projects/securemypw.html">SecureMyPW</a></li>
+						</ul>
+					</li>
+					<li><a href="/pages/kdb/">KDB</a></li>
+					<li class="has-dropdown">
+						<a href="#">About</a>
+						<ul class="dropdown">
+							<li><a href="/pages/about/the-coder.html">The Coder</a></li>
+							<li><a href="/pages/about/contact.html">Contact Me</a></li>
+						</ul>
+					</li>
 				</ul>
 			</section>
 		</nav>
@@ -44,9 +51,13 @@
 		<div class="small-4 columns">
 			<p>(image)</p>
 		</div>
-		<div class="small-8 columns">
+		<div class="banner-title small-8 columns">
 {% block top_title %}
-			<p><span class="yell">BareNakedCoder.com</span><br>I code therefore I am</p>
+{% if banner_title %}
+			<p>{{ banner_title }}</p>
+{% else %}
+			<p><span class="yell">BareNakedCoder.com</span><br>I code therefore I think therefore I am</p>
+{% endif %}
 {% endblock %}
 		</div>
 	</div></div>
@@ -57,7 +68,10 @@
 {% endblock %}
 		</div>
 		<div class="small-12 medium-2 columns hide-for-small-only">
-			<p style="font-size:72%;">Shameless Monetization</p>
+			<h4 style="font-size:88%;">Tags</h4>
+			<p>.</p>
+			<h4 style="font-size:68%;">Shameless Monetization</h4>
+			<p>(coming soon)</p>
 		</div>
 	</div></div>
 
@@ -68,7 +82,9 @@
 	</div></div>
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation.min.js"></script>
+	<script>$(document).foundation();</script>
 {% include 'analytics.html' %}
 {% include 'disqus_script.html' %}
 </body>

@@ -10,6 +10,30 @@
 </div>
 <!-- ---------------- END: Article ---------------- -->
 
+{% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+	var disqus_shortname = '{{ DISQUS_SITENAME }}';
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}
 {% block xxx_content %}
 <section id="content" class="body">
@@ -18,7 +42,6 @@
 			<h1 class="entry-title">
 				<a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
 					title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
-			{% include 'twitter.html' %}
 		</header>
 
 		<div class="entry-content">
@@ -26,6 +49,7 @@
 			{{ article.content }}
 		</div>
 		<!-- /.entry-content -->
+
 		{% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
 		<div class="comments">
 			<h2>Comments !</h2>

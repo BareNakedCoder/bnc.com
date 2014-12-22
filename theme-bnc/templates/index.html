@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block content_title %}{% endblock %}
 {% block content %}
+<p style="font-size:200%; font-weight:bold;">UNDER CONSTRUCTION!</p>
 {% if articles %}
 
 
 {% for article in articles_page.object_list %}
 <!-- ---------------- START: Article Summary ---------------- -->
 <div class="bnc-article">
-<h1>{{ article.title }}</h1>
+<a href="/{{ article.url }}"><h1>{{ article.title }}</h1></a>
 {{ article.summary }}<p class="bnc-byline"><a href="/{{ article.url }}">READ</a> {% include 'article_byline.html' %}</p>
 </div>
 <!-- ---------------- END: Article Summary ---------------- -->
@@ -15,6 +16,18 @@
 
 {% endfor %}
 {% endif %}
+{% if DEFAULT_PAGINATION %}
+<p class="paginator">
+{% if articles_page.has_previous() %}
+	<a href="/{{ articles_previous_page.url }}">&laquo;&laquo;&laquo;</a>&nbsp;
+{% endif %}
+	Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}
+{% if articles_page.has_next() %}
+	&nbsp;<a href="/{{ articles_next_page.url }}">&raquo;&raquo;&raquo;</a>
+{% endif %}
+</p>
+{% endif %}
+<div style="height:24em;"></div>
 {% endblock %}
 {% block xxxxxxxx_content %}
 {% if articles %}

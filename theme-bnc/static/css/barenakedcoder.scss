@@ -25,9 +25,8 @@ body { color:$bnc-c7; background-color:$bnc-c2;
   .yell {
     font-size:240%; font-weight:bold; font-family:'Roboto Slab',sans-serif;
   }
-  .pwl-icon {
-    float:left;
-  }
+  .banner-title { vertical-align:middle; }
+  .pwl-icon { float:left; }
 }
 
 .bnc-swath-1 {
@@ -45,17 +44,20 @@ body { color:$bnc-c7; background-color:$bnc-c2;
   width:1.6em; height:1.6em; border:0.4em solid $bnc-c5; float:left; margin:0 8px 4px 0;
 }
 
-.bnc-article {
+.bnc-swath-1 {
   padding-left:$bnc-woff; margin-bottom:4rem;
-  h1 { @include title-1(1.6em); padding-left:$bnc-w5; margin-left:-$bnc-woff;
+  xxxh1 { @include title-1(1.6em); padding-left:$bnc-w5; margin-left:-$bnc-woff;
     border-top:5px solid $bnc-c7; border-left:$bnc-w5 solid $bnc-c7; border-radius:6px; }
-  h2 { @include title-1(1.4em); border-top:5px solid $bnc-c7; margin-left:-$bnc-woff; }
-  h3 { @include title-1(1.2em); border-top:3px solid $bnc-c7; margin-left:-$bnc-woff; }
+  h1 { @include sidebox; font-size:1.4em; font-weight:bold; color:$bnc-c2;
+    padding-left:$bnc-w5; margin-left:-$bnc-woff; }
+  h2 { @include title-1(1.4em); border-top:8px solid $bnc-c7; margin-left:-$bnc-woff; }
+  h3 { @include title-1(1.2em); border-top:5px solid $bnc-c7; margin-left:-$bnc-woff; }
   h4 { @include title-1(1.0em); border-top:2px solid $bnc-c7; }
   h5 { @include title-1(1.0em); border-top:1px solid $bnc-c8; }
   h6 { @include title-1(0.9em); text-align:center; }
   abbr { border-bottom:1px dashed $bnc-c2; }
   a:hover { border-bottom-width:1px; border-bottom-style:solid; }
+  hr.docutils { border:0; height:3px; background-color:$bnc-c7; }
 }
 
 .bnc-byline {
@@ -65,12 +67,26 @@ body { color:$bnc-c7; background-color:$bnc-c2;
 }
 
 #contents {
-  padding:0 1rem; margin-bottom:20px; line-height:1;
+  padding:0 1rem; margin-bottom:16px; margin-left:16px; line-height:1; width:50%; float:right;
   @include sidebox;
-  .topic-title { display:none; color:$bnc-c2; font-size:1.2em; font-weight:bold; margin:0; }
-  ul.simple { margin-bottom:0; }
+  .topic-title { xdisplay:none; color:$bnc-c2; background-color:$bnc-c5; font-size:.9rem; font-weight:bold;
+    margin:0 -1rem; text-align:center; letter-spacing:.75rem; text-transform:uppercase; }
+  ul.simple { margin-bottom:0;
+    .reference {font-size:.9rem; }
+  }
   ul { list-style-type:none; }
   a { color:$bnc-c2; }
+}
+
+.highlighttable {
+  margin-left:1rem;
+  tr td { font-size:1.1rem; }
+  .linenos { background-color:$bnc-c7; }
+}
+
+.note {
+  border-left:1rem solid $bnc-c7; margin-left:1rem; padding-left:1rem;
+  .admonition-title { display:none; }
 }
 
 .sidebar {
